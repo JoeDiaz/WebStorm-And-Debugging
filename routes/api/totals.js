@@ -15,6 +15,6 @@ module.exports = function (app) {
 api.list = function (req, res, next) {
     client.get('totals', function (err, total) {
         if (err) return next(err);
-        res.send(200, total.toFixed(2));
+        res.send(200, parseFloat(total).toFixed(2));
     });
 }

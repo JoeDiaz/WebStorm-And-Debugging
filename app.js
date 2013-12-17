@@ -43,6 +43,9 @@ if ('development' == app.get('env')) {
 }
 app.get('/', routes.index);
 
+require('./routes/api/users')(app);
+require('./routes/api/totals')(app);
+
 if (module = require.main) {
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
